@@ -1,0 +1,27 @@
+spring:
+    application:
+        name: springboot-postgresql-jpa-hibernate-crud-example
+    datasource:
+        password: admin
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+    kafka:
+        bootstrap-srvers: localhost:9092
+        producer:
+          batch-size: 0
+          bootstrap-servers: localhost:9092
+          client-id: test
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: com.example.demo.util.ValueSerializer
+        consumer:
+          group-id: test1
+          key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          
